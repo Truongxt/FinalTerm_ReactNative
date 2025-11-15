@@ -1,4 +1,4 @@
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, Alert } from "react-native";
 import { useRouter, useFocusEffect } from "expo-router";
 import { useCallback } from "react";
 import useBooks from "../hooks/useBooks";
@@ -44,7 +44,20 @@ export default function Home() {
             onLongPress={() =>
               router.push({ pathname: "/add-edit", params: { id: item.id } })
             }
-            onDelete={() => remove(item.id)}
+            onDelete={() =>
+              Alert.alert(
+                "Xác nhận",
+                "Bạn có chắc muốn xóa sách này?",
+                [
+                  { text: "Hủy", style: "cancel" },
+                  {
+                    text: "Xóa",
+                    style: "destructive",
+                    onPress: () => remove(item.id),
+                  },
+                ]
+              )
+            }
           />
         )}
       />
