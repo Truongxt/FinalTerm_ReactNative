@@ -1,11 +1,18 @@
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
-import { useRouter } from "expo-router";
+import { useRouter, useFocusEffect } from "expo-router";
+import { useCallback } from "react";
 import useBooks from "../hooks/useBooks";
 import BookItem from "../components/BookItem";
 
 export default function Home() {
   const router = useRouter();
-  const { books, cycleStatus, remove } = useBooks();
+  const { books, load, cycleStatus, remove } = useBooks();
+
+  useFocusEffect(
+    useCallback(() => {
+      load();
+    }, [])
+  );
 
   return (
     <View style={{ flex: 1, padding: 15 }}>
