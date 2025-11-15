@@ -15,5 +15,18 @@
     "expo-sqlite"
   ],
   "name": "tranxuantruong_finalterm",
-  "slug": "tranxuantruong_finalterm"
+  "slug": "tranxuantruong_finalterm",
+  "extra": {
+    "router": {
+      "origin": "https://n"
+    },
+    "eas": {
+      "projectId": "3ebbb60b-0fe8-4ead-93c5-3adb8136ac6c"
+    }
+  },
+  "expo": {
+    "android": {
+      "package": "com.truongxt2501.tranxuantruong_finalterm"
+    }
+  }
 }
